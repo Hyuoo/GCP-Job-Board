@@ -1,0 +1,9 @@
+env.py
+
+*.csv
+
+/log
+
+recruit/job_postings
+
+__pycache__/
