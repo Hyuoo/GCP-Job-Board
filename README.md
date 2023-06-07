@@ -3,7 +3,10 @@
 
 <img src="https://img.shields.io/badge/github-181717?style=flat&logo=github&logoColor=white"/> <img src="https://img.shields.io/badge/slack-4A154B?style=flat&logo=slack&logoColor=white"/> <img src="https://img.shields.io/badge/googlecloud-4285F4?style=flat&logo=googlecloud&logoColor=white"/> <img src="https://img.shields.io/badge/powerbi-F2C811?style=flat&logo=powerbi&logoColor=white"/>
 
-### 2팀 2조 사람인 API를 이용한 데이터 직종 일자리 분석
+## 2팀 2조 사람인 API를 이용한 데이터 직종 일자리 분석
+
+### 개요   
+데이터 엔지니어 또는 데이터 직종을 목표로 하는 신입들에게 취업시장에 대해서 궁금할만한 정보들을 요약하여 보여주고, 구글 트렌드 검색어나 자격증 취득 현황 등과의 연관성 탐색하기.
 
 
 ### 팀원 및 역할
