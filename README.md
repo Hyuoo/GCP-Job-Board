@@ -13,6 +13,11 @@
     박정우 : 데이터 GCS 적재 및 자동화
     김태준 : GCP 환경 구축 및 자동화 (GCS, workflow, Bigquery)
     임형우 : DB 모델링, 데이터 분석, 대시보드 구축 및 자동화
+
+    사용 기술
+    Storage     :   Google Cloud Storage
+    DW          :   Google BigQuery
+    Dashboard   :   MS PowerBI
 - - -
 앞단
 - - -
