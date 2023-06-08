@@ -23,8 +23,25 @@
     DW          :   Google BigQuery
     Dashboard   :   MS PowerBI
 - - -
-앞단
+# ETL 과정
 - - -
+# GCP의 VM instance를 활용, ETL 서버를 생성
+e2-medium
+debian-11-bullseye-v20230509 사용
+linux 환경에서 진행
+
+# Cronjob으로 스케쥴
+![Cronjob 세팅](https://github.com/pjw74/GCP-Job-Board/assets/50907018/f1bf7385-0f82-410c-8571-a5acb6b3afa0)
+
+linux 시스템인 Cronjob을 활용해서 30분 / 1시간마다 ETL 파이썬 스크립트 진행
+에러 발생 시의 로그를 로컬에 저장하는 식(외부의 DB로 넘길 수 있도록 변경하면 좋을듯)
+
+# 사람인 API ETL
+
+# 구글 트렌드 API ETL
+
+# 스크립트 실패 / 데이터 적재 실패 / 인스턴스 다운 에 대해서 크게 3가지로 분류하고 해당 오류에 대한 예외처리 및 SLACK으로 알림 기능 구현
+
 
 - - - 
 # 테이블 모델링
