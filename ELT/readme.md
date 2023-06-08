@@ -5,7 +5,7 @@
 
 # Working 
 1. GCS 및 Bigquery 생성 후 IAM 부여 및 테스트 진행
-2. GCSDP 주기적으로 적재되는 데이터에 한해 cloud function 코드 생성
+2. GCS에 주기적으로 적재되는 데이터에 한해 cloud function 코드 생성
 3. cloud scheduler로 function 주기적으로 실행 (프로젝트 기간 매일 자정에 작업 진행)
 4. GCP 내 workflow활용해 flow 작업 체크 
 5. 작업 실시할 때마다 slack, email로 체크
