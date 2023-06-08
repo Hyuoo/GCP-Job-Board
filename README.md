@@ -78,8 +78,8 @@ Setting
 ### ETL 결과 알림
 - Slack inline-hook을 이용해 구현
 - 야간시간대에 모집 공고가 거의 없음을 확인
-- 지속적인 모니터링으로 업로드 패턴이 정립되면 스케줄링 시간대를 개선하여 비용 측면을 개선 가능할 것으로 예상
-<img src="https://github.com/pjw74/GCP-Job-Board/assets/131341085/b539e9bc-9a8b-455e-bb87-6db72d3a8ba6" width="400" height="200"/>  <img src="https://github.com/pjw74/GCP-Job-Board/assets/131341085/7c9474d4-7570-4650-a3a7-f4d275dd5eca" width="400" height="200" />
+- 지속적인 모니터링으로 업로드 패턴이 정립되면 스케줄링 시간대를 개선하여 비용 측면을 개선 가능할 것
+<img src="https://github.com/pjw74/GCP-Job-Board/assets/131341085/b539e9bc-9a8b-455e-bb87-6db72d3a8ba6" width="350" height="200"/>  <img src="https://github.com/pjw74/GCP-Job-Board/assets/131341085/7c9474d4-7570-4650-a3a7-f4d275dd5eca" width="350" height="200" />
 
 
 ## 구글 트렌드 API ETL
