@@ -71,8 +71,7 @@ Setting
 
 - - - 
 # 테이블 모델링
-(스키마 - 테이블)
-테이블 순서는 사전순.
+<left>![img1](/query/elt_flow.png)</left>
 
 - **external** : 외부 테이블 스키마   
     (csv파일)
