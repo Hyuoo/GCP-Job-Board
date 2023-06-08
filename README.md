@@ -26,15 +26,16 @@
 # ETL 과정
 - - -
 # GCP의 VM instance를 활용, ETL 서버를 생성
-e2-medium
-debian-11-bullseye-v20230509 사용
-linux 환경에서 진행
+Setting
+- e2-medium
+- debian-11-bullseye-v20230509 사용
+- linux 환경에서 진행
 
 # Cronjob으로 스케쥴
 ![Cronjob 세팅](https://github.com/pjw74/GCP-Job-Board/assets/50907018/f1bf7385-0f82-410c-8571-a5acb6b3afa0)
 
-linux 시스템인 Cronjob을 활용해서 30분 / 1시간마다 ETL 파이썬 스크립트 진행
-에러 발생 시의 로그를 로컬에 저장하는 식(외부의 DB로 넘길 수 있도록 변경하면 좋을듯)
+- linux 시스템인 Cronjob을 활용해서 30분 / 1시간마다 ETL 파이썬 스크립트 진행
+- 에러 발생 시의 로그를 로컬에 저장하는 식(외부의 DB로 넘길 수 있도록 변경하면 좋을듯)
 
 # 사람인 API ETL
 
