@@ -3,7 +3,7 @@
 
 <img src="https://img.shields.io/badge/github-181717?style=flat&logo=github&logoColor=white"/> <img src="https://img.shields.io/badge/slack-4A154B?style=flat&logo=slack&logoColor=white"/> <img src="https://img.shields.io/badge/googlecloud-4285F4?style=flat&logo=googlecloud&logoColor=white"/> <img src="https://img.shields.io/badge/powerbi-F2C811?style=flat&logo=powerbi&logoColor=white"/>
 
-## 2팀 2조 사람인 API를 이용한 데이터 직종 일자리 분석
+## 2팀 2조 채용관련 API를 이용한 데이터 직종 일자리 분석
 
 ### 팀원 및 역할
 
@@ -14,10 +14,8 @@
     임형우 : DB 모델링, 데이터 분석, 대시보드 구축 및 자동화
 
 ### 사용 기술
+<img src="https://github.com/pjw74/GCP-Job-Board/assets/131341085/57dfd400-4261-400a-bdbf-5d68267af41f" width="300" height="300" />
 
-    Storage     :   Google Cloud Storage
-    DW          :   Google BigQuery
-    Dashboard   :   MS PowerBI
 - - -
 ### 개요   
 사람인에서 재공하는 API와 다른 채용 정보들을 이용하여 현재 데브코스 자체의 의미와 목표인 취업 또는 일자리전망, 유망직종 여부 등의 정보와 추가로 검색량, 자격증 취득 현황 등을 연관관계를 파악할 수 있도록 시각화하여 제공한다.
@@ -49,25 +47,42 @@
 |2018|1|
 
 - - -
+# Workflow
+<img src="https://github.com/pjw74/GCP-Job-Board/assets/131341085/5a4b4e90-767a-43dc-94cb-57e90287efcf" width="800" height="500" />
+
 # ETL 과정
-## GCP의 VM instance를 활용, ETL 서버를 생성
+
+## ETL 서버 생성(Google Compute Engine)
+
+### GCP의 VM instance를 활용, ETL 서버를 생성
 Setting
 - e2-medium
 - debian-11-bullseye-v20230509 사용
 - linux 환경에서 진행
 
-## Cronjob으로 스케쥴
+### Cronjob으로 스케쥴
 ![Cronjob 세팅](https://github.com/pjw74/GCP-Job-Board/assets/50907018/f1bf7385-0f82-410c-8571-a5acb6b3afa0)
 
 - linux 시스템인 Cronjob을 활용해서 30분 / 1시간마다 ETL 파이썬 스크립트 진행
 - 에러 발생 시의 로그를 로컬에 저장하는 식(외부의 DB로 넘길 수 있도록 변경하면 좋을듯)
 
-# 사람인 API ETL
+### 모니터링
+- 스크립트 실패 / 데이터 적재 실패 / 인스턴스 다운 에 대해서 크게 3가지로 분류하고 해당 오류에 대한 예외처리 및 SLACK으로 알림 기능 구현
 
-# 구글 트렌드 API ETL
+## 채용공고 API ETL
+- 실행 시간을 기록하는 파일을 서버에 적재
+    - 마지막 스크립트 실행 이후로 업로드된 IT, 개발, 데이터 분야의 채용공고를 수집
+    - 예외로 인한 코드 미실행, 특수한 상황으로 인해 이번 시도에 가져오지 못한 데이터 확보 목적
+<img src="https://github.com/pjw74/GCP-Job-Board/assets/131341085/d1958e75-e372-4bb9-b1fb-586c60c13161" width="400" height="150" />
 
-# 스크립트 실패 / 데이터 적재 실패 / 인스턴스 다운 에 대해서 크게 3가지로 분류하고 해당 오류에 대한 예외처리 및 SLACK으로 알림 기능 구현
+### ETL 결과 알림
+- Slack inline-hook을 이용해 구현
+- 야간시간대에 모집 공고가 거의 없음을 확인
+- 지속적인 모니터링으로 업로드 패턴이 정립되면 스케줄링 시간대를 개선하여 비용 측면을 개선 가능할 것
+<img src="https://github.com/pjw74/GCP-Job-Board/assets/131341085/b539e9bc-9a8b-455e-bb87-6db72d3a8ba6" width="350" height="200"/>  <img src="https://github.com/pjw74/GCP-Job-Board/assets/131341085/7c9474d4-7570-4650-a3a7-f4d275dd5eca" width="350" height="200" />
 
+
+## 구글 트렌드 API ETL
 
 - - - 
 # 테이블 모델링
