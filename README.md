@@ -86,14 +86,13 @@ Setting
 - 실행 시간을 기록하는 파일을 서버에 적재
 - 예외로 인한 코드 미실행, 구글 트렌드 Requests 과다 요청 등 특수한 상황으로 인해 이번 시도에 가져오지 못한 오류 로그 데이터 확보 목적
 
-![log_1](https://github.com/pjw74/GCP-Job-Board/assets/70009161/0de49eb5-f9a4-4868-8b82-0216d2ab97c4)
+<img src="https://github.com/pjw74/GCP-Job-Board/assets/70009161/0de49eb5-f9a4-4868-8b82-0216d2ab97c4" width="350" height="200"/>
 
 ### ETL 결과 알림
 - Slack inline-hook을 이용해 구현
 - 모니터링을 통해 중복된 과거 데이터(2018~2022) 제외하고 최신 구글 트렌드만 업로드하여 비용 측면을 개선 가능할 것
 
-![alert](https://github.com/pjw74/GCP-Job-Board/assets/70009161/ba80d03e-531c-41d2-8739-caa39023cfdf)
-
+<img src="https://github.com/pjw74/GCP-Job-Board/assets/70009161/ba80d03e-531c-41d2-8739-caa39023cfdf" width="350" height="200"/>
 
 - - - 
 # 테이블 모델링
