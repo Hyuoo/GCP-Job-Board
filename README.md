@@ -81,7 +81,6 @@ Setting
 - 지속적인 모니터링으로 업로드 패턴이 정립되면 스케줄링 시간대를 개선하여 비용 측면을 개선 가능할 것
 <img src="https://github.com/pjw74/GCP-Job-Board/assets/131341085/b539e9bc-9a8b-455e-bb87-6db72d3a8ba6" width="350" height="200"/>  <img src="https://github.com/pjw74/GCP-Job-Board/assets/131341085/7c9474d4-7570-4650-a3a7-f4d275dd5eca" width="350" height="200" />
 
-
 ## 구글 트렌드 API ETL
 - 실행 시간을 기록하는 파일을 서버에 적재
 - 예외로 인한 코드 미실행, 구글 트렌드 Requests 과다 요청 등 특수한 상황으로 인해 이번 시도에 가져오지 못한 오류 로그 데이터 확보 목적
