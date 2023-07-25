@@ -1,0 +1,96 @@
+### TABLE RELATION
+<left>![img1](/query/elt_flow.png)</left>
+
+1. external로 들어온 데이터들의 문제점 해결
+    1. **`` `external.recruit_table` ``** 레코드 내 다중값 존재
+    1. **`` `external.certification` ``** csv파일에서 헤더값이 한글로 되어 컬럼명이 깨짐
+    1. **`` `external.certification` ``** 일부 도메인 값의 통일성 부족
+    1. **`` `external.certification` ``** 합격률에 해당하는 값의 통일성 부족 (소수점, 백분위)
+
+
+
+
+### external.recruit_table
+|position_title|position_industry|position_location|position_job_type|position_job_mid_code|position_industry_keyword_code|position_job_code_keyword_code|position_experience_level_code|position_experience_level_min|position_experience_level_max|position_required_education_level|keyword|salary|posting_timestamp|posting_date|expiration_timestamp|expiration_date|read_cnt|apply_cnt|
+|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|
+|IDC구축분야 안전관리(가산) 프로젝트계약직 채용|305|101080|2|22,2|999|154,2037,2048,154|2|3|0|0|null|99|1685494276|2023-05-31T09:51:16+0900|1703948400|2023-12-31T00:00:00+0900|0|0|
+|2023년 5월 경력사원 채용|121|101080,101150,101230,101240,102000|1|2,18|999|90,127,167,2212,167|2|2|0|8|null|99|1685068573|2023-05-26T11:36:13+0900|1686099600|2023-06-07T10:00:00+0900|328|0|
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+
+### external.certification table
+|____________|_____________1|_____________2|_____________3|_____________4|_________|
+|-|-|-|-|-|-|
+|정보처리기사|2022|기사|48470|27208|0.561|
+|정보처리기사|2021|기사|51640|32865|0.636|
+|sql|2012|개발자|844|267|31.64|
+|sql|2022|개발자(공인)|32474|15845|48.79|
+|sql|2022|전문가(공인)|629|64|10.17|
+
+
+|||||||
+|-|-|-|-|-|-|
+|||||||
+|||||||
+|||||||
+|||||||
+|||||||
+  3. 
+
+- **external** : 외부 테이블 스키마   
+    (csv파일)
+    - recruit_table : csv로 저장된 API응답
+    - google_trend : csv로 저장된 구글 트렌드 API응답
+    - certification : csv로 저장된 자격증 
+
+- **meta** : 외부테이블 값에 대한 메타데이터   
+    (API명세 내용)
+    - education : 채용 학력코드 상세
+    - experiences : 채용 경력코드 상세
+    - industries : 채용 산업코드 상세 (소분류)
+    - industry_categories : 채용 산업코드 상세 (대분류)
+    - job_codes : 채용 키워드
+    - location : 채용 지역 상세
+
+- **raw_data** : 외부 데이터에서 정제/전처리 한 데이터   
+    (external.recruit_table로부터 레코드별로 id부여 후 정규화)
+    - certification : 자격증 취득 현황 테이블
+    - experiences : 경력코드-경력값 테이블
+    - google_trend : 구글 트렌드 검색량 테이블
+    - industries : 산업코드-대분류-소분류 테이블
+    - job_doce_keywords : 키워드코드-키워드 테이블
+    - locations : 지역코드-전체지역-상세지역
+    - recruits : 공고명, 학력, 급여조건, 게시일자, 조회수, 지원수
+
+- **analystic** : 분석용 요약 테이블   
+    (특정 태그에 맞는 직종별 id단일 컬럼으로 구성된 조인테이블로써 구성)
+    - da_ids : 데이터 분석가 id목록
+    - datajob_ids : de, da, ds 세 직종을 합치고 중복 제거한 id목록
+    - de_ids : 데이터 엔지니어 id목록
+    - ds_ids : 데이터 사이언티스트 id목록
+    - embedded_ids : 임베디드 개발자 id목록
+    - security_ids : 보안계열 id목록
+    - web_back_ids : 웹 백엔드 id목록
+    - web_front_ids : 웹 프론트엔드 id목록
+
+- **visual_tables** : 대시보드 연동 테이블
+    - all_count : 전체 recruit 데이터레코드 갯수
+    - area_ratio : 전체지역 별 채용 비율
+    - area_ratio_seoul : 서울 지역 내 채용 비율
+    - certifications : 연간 자격증 응시자/합격자/합격률
+    - data_job_detail_ratio : 데이터직종 내 상세 비율
+    - data_job_ratio : 전체 채용 중 데이터직종 비율
+    - dev_industry_datajobs : 개발자 채용 산업 계 (대분류), (it전체, de, da, ds 별)
+    - dev_industry_first_detail : 위 대분류에서 최상위 산업분야의 상세 내용 (it전체, de, da, ds 별)
+    - google_trends : 주간 구글 트렌드 검색량
+    - recruit_for_exp : 위 analystic에서 분류된 직종 별 전체, 경력, 신입무관, 신입 채용 수
+    - top_datajob_keywords : 데이터직종 채용 키워드 TOP30 (de, da, ds 별)
+    - top_keywords : IT전체 채용 키워드 TOP50
+
+- **adhoc** : 임시 스키마   
+    (쓰이진 않으나 참고용으로 가능하기에 남겨둠)
+    - area_ratio_gyeonggi : 경기도 지역 채용 수
+    - area_ratio_gyeonggi_sum : 경기도 지역 채용 수 ('구'별 구분 없이)
+    - count_of_month : 수집된 데이터 월간 분포 (전처리 이후)
+    - count_of_year : 수집된 데이터 연간 분포 (전처리 이후)
