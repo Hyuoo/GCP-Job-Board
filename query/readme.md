@@ -5,7 +5,7 @@
     1. **`` `external.recruit_table` ``** 레코드 내 다중값 존재
     1. **`` `external.certification` ``** csv파일에서 헤더값이 한글로 되어 컬럼명이 깨짐
     1. **`` `external.certification` ``** 일부 도메인 값의 통일성 부족
-    1. **`` `external.certification` ``** 합격률에 해당하는 값의 통일성 부족 (소수점, 백분위)
+    1. **`` `external.certification` ``** 합격률에 해당하는 값의 통일성 부족 (소수점, 백분율)
 
 
 
